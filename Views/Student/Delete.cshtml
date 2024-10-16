@@ -1,0 +1,19 @@
+@model Student
+
+<h3 class="h3">Edit Student</h3>
+<hr>
+
+<div class="card">
+    <h5 class="card-header">Are you sure you want to delete student?</h5>
+    <div class="card-body">
+        <p class="card-text">Name: <b>@Model.Name</b></p>
+        <p class="card-text">Surname: <b>@Model.Surname</b></p>
+        <p class="card-text">Email: <b>@Model.Email</b></p>
+        <p class="card-text">Phone: <b>@Model.Phone</b></p>
+        <form asp-action="Delete" method="post">
+            <input type="hidden" value="@Model.StudentId" name="id">
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a class="btn btn-primary" asp-action="Index">Exit</a>
+        </form>
+    </div>
+</div>
