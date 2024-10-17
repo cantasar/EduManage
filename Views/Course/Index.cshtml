@@ -1,0 +1,42 @@
+@model IEnumerable<Course>
+
+<div class="container my-5">
+    <h2 class="mb-4">Course List</h2>
+    <a asp-action="Add" asp-controller="Course" class="btn btn-primary">Add New Course</a>
+    <hr>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (Model.Any())
+            {
+                var count = 1;
+                foreach (var course in Model)
+                {
+                    <tr>
+                        <td>@count</td>
+                        <td>@course.Title</td>
+                        <td>
+                            <a href="/Course/Delete/@course.CourseId" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    count++;
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No courses available.</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

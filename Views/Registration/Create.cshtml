@@ -1,0 +1,22 @@
+@model Registry
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-sm" style="max-width: 500px; width: 100%;">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">New Student Registration</h5>
+            <form asp-controller="Registration" asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="StudentId" class="form-label fw-bold">Student</label>
+                    <select asp-for="StudentId" asp-items="ViewBag.Students" class="form-control"></select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CourseId" class="form-label fw-bold">Course</label>
+                    <select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-control"></select>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

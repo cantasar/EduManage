@@ -3,24 +3,46 @@
 <h3 class="h3">Edit Student</h3>
 <hr>
 
-<form asp-controller="Student" asp-action="Edit" method="post">
-    <input type="hidden" asp-for="StudentId">
-    <div class="mb-3">
-        <label asp-for="Name" class="form-label">Student Name</label>
-        <input asp-for="Name" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Surname" class="form-label">Student Surname</label>
-        <input asp-for="Surname" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Email" class="form-label">Student Email</label>
-        <input asp-for="Email" class="form-control">
-    </div>
-    <div class="mb-3">
-        <label asp-for="Phone" class="form-label">Student Phone</label>
-        <input asp-for="Phone" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+<div class="row">
+    <div class="col-8">
+        <form asp-controller="Student" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="StudentId">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">Student Name</label>
+                <input asp-for="Name" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Surname" class="form-label">Student Surname</label>
+                <input asp-for="Surname" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Student Email</label>
+                <input asp-for="Email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label">Student Phone</label>
+                <input asp-for="Phone" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
 
-</form>
+        </form>
+    </div>
+    <div class="col-4">
+        <h4>Courses</h4>
+        <hr>
+        <ul>
+            @if (Model.RegCourses != null && Model.RegCourses.Any())
+            {
+                @foreach (var item in Model.RegCourses)
+                {
+                <li>@item.Course.Title</li>
+                }
+            }
+            else
+            {
+            <p>No registered courses found.</p>
+            }
+        </ul>
+    </div>
+</div>
+

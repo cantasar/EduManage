@@ -1,0 +1,16 @@
+@model Course
+
+<h3 class="h3">Delete Course</h3>
+<hr>
+
+<div class="card">
+    <h5 class="card-header">Are you sure you want to delete course?</h5>
+    <div class="card-body">
+        <p class="card-text">Title: <b>@Model.Title</b></p>
+        <form asp-action="Delete" method="post">
+            <input type="hidden" value="@Model.CourseId" name="id">
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            <a class="btn btn-primary" asp-action="Index">Exit</a>
+        </form>
+    </div>
+</div>
