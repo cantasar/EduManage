@@ -20,7 +20,7 @@ EduManage is a backend solution designed to streamline the management of student
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/EduManage.git
+    git clone https://github.com/cantasar/EduManage.git
     ```
 2. Navigate to the project directory:
     ```bash
